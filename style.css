@@ -1,0 +1,148 @@
+/* ---------- Theme colours (light + dark) ---------- */
+:root {
+  --bg: #f3f5fb;
+  --card: #ffffff;
+  --border: #dfe3ef;
+  --accent: #3b4ccf;
+  --good: #1f9d55;
+  --bad: #d64545;
+  --idle: #cfd5e6;
+}
+
+[data-bs-theme="dark"] {
+  --bg: #12141f;
+  --card: #1c1f2e;
+  --border: #31364b;
+  --accent: #8b97ff;
+  --good: #3ecf7a;
+  --bad: #ff6b6b;
+  --idle: #3a4056;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg);
+  transition: background .3s;
+}
+
+.app-wrap {
+  max-width: 720px;
+}
+
+.card-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.name-input {
+  max-width: 320px;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-primary {
+  --bs-btn-color: #12141f;
+  --bs-btn-hover-color: #12141f;
+}
+
+/* ---------- Segmented progress bar ---------- */
+.seg-bar {
+  display: flex;
+  gap: 6px;
+}
+
+.seg {
+  flex: 1;
+  height: 10px;
+  border-radius: 6px;
+  background: var(--idle);
+  transition: background .3s;
+}
+
+.seg.current {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.seg.correct {
+  background: var(--good);
+}
+
+.seg.wrong {
+  background: var(--bad);
+}
+
+/* ---------- Timer ---------- */
+.timer-badge {
+  min-width: 64px;
+  text-align: center;
+  padding: .25rem .75rem;
+  border-radius: 20px;
+  font-weight: 600;
+  background: var(--idle);
+}
+
+.timer-badge.low {
+  background: var(--bad);
+  color: #fff;
+}
+
+/* ---------- Answer options ---------- */
+.opt {
+  text-align: left;
+  padding: .75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font-weight: 500;
+  transition: border-color .2s, background .2s;
+}
+
+.opt:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.opt.correct {
+  border-color: var(--good);
+  background: color-mix(in srgb, var(--good) 18%, transparent);
+}
+
+.opt.wrong {
+  border-color: var(--bad);
+  background: color-mix(in srgb, var(--bad) 18%, transparent);
+}
+
+.opt:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+/* ---------- Review list ---------- */
+.review-item {
+  border-left: 4px solid var(--idle);
+  padding: .4rem .8rem;
+  margin-bottom: .75rem;
+}
+
+.review-item.ok {
+  border-color: var(--good);
+}
+
+.review-item.bad {
+  border-color: var(--bad);
+}
+
+@media (max-width: 576px) {
+  .card-box {
+    padding: 1.1rem;
+  }
+}
